@@ -1,25 +1,33 @@
 require 'pry'
 
 class Game
-  def initialize
+  def initialize(rooms)
+    @rooms = rooms
     @player = Player.new
-    puts "\n\n__xxx***You are trying to escape a maze of rooms.***xxx__\n\nEach room has up to 4 possible exits:\nNorth: 'N'\nSouth: 'S'\nEast: 'E'\nWest: 'W'\nExit the game: 'Q'\nCurrent room's info: 'room?'\nHint for current room: 'hint?'"
+    @load_bool = 0
+    puts "\n\n__xxx***You are trying to escape a maze of rooms.***xxx__\n\nEach room has up to 4 possible exits:\nNorth: 'N'\nSouth: 'S'\nEast: 'E'\nWest: 'W'\nExit the game: 'Q'\nCurrent room's info: 'room?'\nHint for current room: 'hint?\nCheck room: 'look around'\nPick up item in the room: 'get item'\nCheck inventory: 'inventory?'\nSet down item in room: 'drop item'"
   end
 
   def save_game
-      @save_contents = [@player.locate[:title],@player.check_inventory,@rooms
-      IO.write('roomsave.txt',@save_contents)
+      open('roomsave.txt', 'w') {|f|
+        f.print "#{@player.locate[:title]}\n"
+        f.print "#{@player.check_inventory}\n"
+        f.print "#{@rooms}\n"
+      }
   end
 
-  def load_game#
+  def load_game
     @load_game = IO.readlines('roomsave.txt')
+    @player.set_location(@rooms[@load_game[0].chomp.to_sym])
+    @player.inventory = @load_game[1].chomp.gsub(/(\[\"|\"\])/, '').split('", "') #strips out unnecessary characters and converts to array
+    @rooms = eval(@load_game[2].chomp) #converts the string to a hash
+    binding.pry
   end
 
-  def start_game(rooms)
-    @loc_tracker = ""
-    @rooms = rooms
-    print "Enter any command to begin"
-    @player.set_location(rooms[:jailcell]) #puts player into the  jailcell as starting room
+  def start_game
+    # @rooms = rooms
+    print "\nEnter any command to begin\n"
+    @player.set_location(@rooms[:jailcell]) # : @player.set_location(@rooms[@load_game[0].chomp.to_sym]) #puts player into the  jailcell as starting room
       while @char != "Q"
         print ">"
         @char = gets.chomp.upcase
@@ -42,6 +50,8 @@ class Game
           puts @player.print_exits
         when "SAVE GAME"
           save_game
+        when "LOAD GAME"
+          load_game
         when "LOOK AROUND"
           if @player.find_items.empty?
             puts "The room is empty"
@@ -64,7 +74,7 @@ class Game
 end #end class
 
 class Player
-  attr_accessor :location, :next_room
+  attr_accessor :location, :next_room, :inventory
   def initialize
     @location = location #the room they are in
     @inventory = []
@@ -111,7 +121,6 @@ class Player
   def move_room(direction,rooms)
     @next_room = find_linking_room(direction).to_sym
     set_location(rooms[@next_room])
-    @loc_tracker=1 ##does not ahve access to @rooms, even though I initialize player inside of Game?
   end
 
   def find_items #returns an array
@@ -131,18 +140,21 @@ class Player
   end
 
   def put_down_item(thing)
-    @location[:objects] << @inventory.select {|object| object==thing}
+    item_to_drop = @inventory.select {|object| object==thing} #assigns item to drop to be 'thing' in the inventory array
+    item_to_drop = item_to_drop.join('') #converts array to a string
+    @inventory.delete_if { |item| item==thing} #deletes item from inventory
+    @location[:objects] << item_to_drop #puts item into :objects has of the room
   end
 
 end
 
 rooms = {
-  :jailcell => {:title => "Jailcell",:exits=>{"S" => 'main_hallway'},:objects => ["KEYS"],:hint=>"go South, foolio",:desc=>"You just woke up from a beer drinking contest. You appear to be in an old jail but no one else is here. It appears someone left the south-facing door open..."},
-  :main_hallway => {:title=>"Main Hallway",:exits=>{"N" => 'jailcell', "E" => 'torture_chamber', "S"=>'yard'},:hint=>"Just because the hall is dark that doesn't mean it's scary",:desc=>"The hallway is dark, except for the old flickering lights in one corner and light shining through a door to your left. You could keep going South but it is too dark to see what's at the end of the hall"},
-  :torture_chamber => {:title=>"Torture Chamber",:exits=>{"W"=>'main_hallway'},:objects =>["SAW"],:hint=>"I wonder what Alexa has seen and heard",:desc=>"A modern day torture chamber! With smart lighting to save on the electric bill and torture commands linked to Alexa"},
-  :yard => {:title=>"Yard", :exits => {"N"=>'main_hallway',"E" => 'yard2',"S"=>'garage',"W"=>'office'},:hint=>"This courtyard is open, you can go in any diretion",:desc=>"You step outside into a sunny, grassy courtyard. All sides are either fenced in or bordering buildings."},
-  :yard2 => {:title=>"Small yard",:exits=>{"W"=>'yard'},:hint=>"It's the door you came in! Which unfortunately is the only interesting thing in here",:desc=>"You go through a gate in the main courtyard's fence and end up in a smaller enclosed dirt yard. What's that over there!?"}
+  :jailcell => {:title => "jailcell",:exits=>{"S" => 'main_hallway'},:objects => ["KEYS"],:hint=>"go South, foolio",:desc=>"You just woke up from a beer drinking contest. You appear to be in an old jail but no one else is here. It appears someone left the south-facing door open..."},
+  :main_hallway => {:title=>"main_hallway",:exits=>{"N" => 'jailcell', "E" => 'torture_chamber', "S"=>'yard'},:objects=>[],:hint=>"Just because the hall is dark that doesn't mean it's scary",:desc=>"The hallway is dark, except for the old flickering lights in one corner and light shining through a door to your left. You could keep going South but it is too dark to see what's at the end of the hall"},
+  :torture_chamber => {:title=>"torture_chamber",:exits=>{"W"=>'main_hallway'},:objects =>["SAW"],:hint=>"I wonder what Alexa has seen and heard",:desc=>"A modern day torture chamber! With smart lighting to save on the electric bill and torture commands linked to Alexa"},
+  :yard => {:title=>"yard", :exits => {"N"=>'main_hallway',"E" => 'yard2',"S"=>'garage',"W"=>'office'},:objects=>[],:hint=>"This courtyard is open, you can go in any diretion",:desc=>"You step outside into a sunny, grassy courtyard. All sides are either fenced in or bordering buildings."},
+  :small_yard => {:title=>"Small_yard",:exits=>{"W"=>'yard'},:objects=>[],:hint=>"It's the door you came in! Which unfortunately is the only interesting thing in here",:desc=>"You go through a gate in the main courtyard's fence and end up in a smaller enclosed dirt yard. What's that over there!?"}
 }
 
-mygame=Game.new
-mygame.start_game(rooms)
+mygame=Game.new(rooms)
+mygame.start_game
