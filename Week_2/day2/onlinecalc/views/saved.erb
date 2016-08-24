@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Calculator</title>
+</head>
+<header>
+  <img src="public/kitten-and-gun.jpg" alt="kitten-and-gun" height="100" width="100">
+</header>
+<body>
+  <h1>Save Result</h1>
+  <p>The result of your math is <%= @result %></p>
+  
+  <form action="/saved" method="POST">
+  <button type="submit" name="saved" value= <%= @result%> >SAVE</button>
+  </form>
+
+</body>
+</html>

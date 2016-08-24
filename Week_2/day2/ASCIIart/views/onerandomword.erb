@@ -1,0 +1,3 @@
+  <% @font == nil ? (@font = "standard") : (@font = @font) %>
+  <%  a = Artii::Base.new :font => @font.to_s %>
+  <pre><%= a.asciify(@word) %></pre>

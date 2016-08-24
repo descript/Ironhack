@@ -1,5 +1,6 @@
-require_relative 'sinatraTODO.rb'
+require_relative '../lib/sinatraTODO.rb'
 require 'pry'
+require 'yaml/store'
 
 RSpec.describe Task do
   before :each do
@@ -41,7 +42,7 @@ end#end class
 
 RSpec.describe TodoList do
   before :each do
-  @list = TodoList.new
+  @list = TodoList.new("John")
   @singletask = Task.new("pass this test")
   @singletask2 = Task.new("i like cats")
   @singletask3 = Task.new("this should be last")
@@ -81,16 +82,24 @@ end
 
 describe "#sort_by_created" do
   it "sort tasks based on time created" do
-    binding.pry
-    task1 = Task.new("fuck")
-    task2 = Task.new("dumb")
-    task3 = Task.new("STUPID")
+    task1 = Task.new("doit")
+    task2 = Task.new("now")
+    task3 = Task.new("yesterday")
     @list.add_task(task3)
     @list.add_task(task1)
     @list.add_task(task2)
-    # new_arr = @list.sort_by_created
-    expect(@list.size).to eq(3)
+    @list.sort_by_created("asc")
+    task_arr = @list.tasks
+    expect(task_arr[0].created_at > task_arr[-1].created_at).to eq(true)
   end
 end
+
+describe "#check that new user is added to Todolist Class" do
+  it "should be able to read the user" do
+    # binding.pry
+    expect(@list.user).to eq("John")
+  end
+end
+
 
 end

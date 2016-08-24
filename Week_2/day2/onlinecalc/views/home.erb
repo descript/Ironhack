@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Calculator</title>
+</head>
+<body>
+  <!-- <img src="kitten.jpg" alt="cat" style="width:200px;height:200px;"> -->
+  <h1>Online Calculator</h1>
+
+  <form action="/calculate" method="POST">
+  <input type="number" name ="first_number" placeholder="1st number">
+  <input type="number" name ="second_number" placeholder="2nd number">
+
+  <button type="submit" name="operation" value="addition">ADD</button>
+  <button type="submit" name="operation" value="subtraction">SUBTRACT</button>
+  <button type="submit" name="operation" value="multiplication">MULTIPLY</button>
+  <button type="submit" name="operation" value="division">DIVIDE</button>
+  </form>
+
+  <form action = "/session_show" method="POST">
+  <input type = "text" name = "saved_value"  placeholder="session_hash"/>
+  <button type="submit" name="session" value = "stupid">Save Sesh</button>
+  </form>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <div>
+    Save your work and return later
+  </div>
+
+  <form action = "/session_show" method="POST">
+  <input type = "text" name = "saved_value"  placeholder="session_hash"/>
+  <button type="submit" name="session" value = "stupid">Save Sesh</button>
+  </form>
+  <small>
+    Currently in the session:
+    <b><%=session[:saved_value]%></b>
+  </small>
+
+</body>
+</html>

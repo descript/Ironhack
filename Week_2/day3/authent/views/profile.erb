@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+  </head>
+  <body>
+    <p>
+      Welcome <%=@username %>.
+      Please don't share your password of <%= @password%> with anyone.
+    </p>
+
+    <form action="/log_out" method="POST">
+    <button type="logout" name="logout" id="logout">LOGOUT</button>
+    </form>
+
+    <p>
+      <%=session.inspect %>
+    </p>
+    <p>
+      <!-- <%=users.inspect %> -->
+    </p>
+
+  </body>
+</html>
