@@ -5,7 +5,8 @@ gem 'psych'
 require 'psych'
 
 module Storage
-    @todo_store = YAML::Store.new("../public/tasks.yml")
+    attr_accessor :todo_store
+    @todo_store = YAML::Store.new("./public/tasks.yml")
 
     def save
         @todo_store.transaction do
@@ -14,7 +15,9 @@ module Storage
     end
 
     def load_tasks
-        YAML.load_file("../public/tasks.yml")
+        prev_state = YAML.load_file("./public/tasks.yml")
+        @tasks = prev_state[@user]
+        @tasks
     end
 end
 
@@ -63,6 +66,10 @@ class TodoList
         @tasks << task
     end
 
+    def get_tasks
+        @tasks
+    end
+
     def delete_task(input_id)
         @tasks.delete_if {|task| task.id == input_id}
     end
@@ -80,10 +87,8 @@ class TodoList
             sorted_by_created = @tasks.sort! { | task1, task2 | task1.created_at <=> task2.created_at }
         end
     end
-# binding.pry
 end#end class
 
-#
 # todo_list = TodoList.new("jason")
 # task = Task.new("pwn n00bs")
 # task2 = Task.new("be nice now")

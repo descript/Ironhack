@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blog Homepage</title>
+  </head>
+  <body>
+    <h1>Blog Homepage</h1>
+    <% @blog.show_posts.each do |post| %>
+    <ul>
+    <li><%= post.title %> <br />
+      <ul>
+      <li> <%= post.text %> <br  />
+      </ul>
+    </ul>
+
+    <% end %>
+  </body>
+</html>
