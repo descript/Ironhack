@@ -1,0 +1,14 @@
+#text_form {
+  line-height: 10em; // 2em is (2 * default line height)
+}
+
+body {
+  background-image: url("teal_bkgrnd.jpg");
+  color: white
+}
+
+a {
+color: white;
+font-weight: bold;
+font-size: 20px
+}

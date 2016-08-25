@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Post Details</title>
+  </head>
+  <body>
+    <h2><%= @blog.show_posts[@post_index].title %></h2>
+    <p><%= @blog.show_posts[@post_index].category %></p>
+    <p><%= @blog.show_posts[@post_index].date.strftime("%B %d,%Y") %></p>
+    <p><%= @blog.show_posts[@post_index].text %></p>
+    <p><%= @blog.show_posts[@post_index].author %></p>
+  </body>
+</html>

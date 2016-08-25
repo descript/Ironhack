@@ -2,18 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Blog Homepage</title>
   </head>
   <body>
     <h1>Blog Homepage</h1>
-    <% @blog.show_posts.each do |post| %>
-    <ul>
-    <li><%= post.title %> <br />
+      <div>
+      <% i = 0%>
+      <% @blog.sort_by_latest %>
+      <% @blog.show_posts.each do |post| %>
       <ul>
-      <li> <%= post.text %> <br  />
+      <li><a href="/post_details/<%=i%>"><%= post.title %></a> <br />
+        <ul>
+        <li> <%= post.date.strftime("%B %d,%Y") %> <br  />
+        </ul>
       </ul>
-    </ul>
+      <% i = i+1 %>
+      <% end %>
+      </div>
+      <div>
+        <br />
+        <br />
+        <br />
 
-    <% end %>
+        <h3>Quick Post Submission</h3>
+          <form action="/submit_post" method="POST">
+          <button type="submit_post">New Post</button>
+          </form>
+      </div>
+
   </body>
 </html>

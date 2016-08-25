@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>New Post</title>
+  </head>
+  <body>
+
+    <form action="/save_new_post" method="POST">
+    <input type="text" name ="title" placeholder="Title" size=50 >
+    <br />
+    <br />
+    <input type="text" name ="category" placeholder="Category" size=50>
+    <br />
+    <br />
+    <input type="text" name ="author" placeholder="Author" size=50>
+    <br />
+    <br />
+    <input type="text" name ="text" placeholder="Text" size=50 id="text_form">
+    <br />
+    <br />
+    <button type="submit" name="new_post">SUBMIT POST</button>
+    </form>
+
+  </body>
+</html>
