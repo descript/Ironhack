@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Delete Task</title>
+  </head>
+  <body>
+
+    <h1>All Tasks</h1>
+
+    <% @tasklist.each do |task| %>
+      <ul>
+        <% unless task.completed? %> <!--only shows active tasks -->
+        <li><%= task.content %><span class="task_item">   <form action="/delete_task/<%=task.id%>" method="POST" class="task_form"><button type="delete_task" name="delete_task" value="<%task%>">Delete</form></span>
+        <% else %>
+        <li class="completed_item"><%= task.content %><span class="task_item">   <form action="/delete_task/<%=task.id%>" method="POST" class="task_form"><button type="delete_task" name="delete_task" value="<%task%>">Delete</form></span>
+          </ul>
+          <%end%>
+        </ul>
+      <%end%>
+
+  </body>
+</html>

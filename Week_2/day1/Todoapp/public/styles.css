@@ -1,0 +1,44 @@
+header {
+  background-color: rgba(192,192,192, 0.1);
+  max-height: 5em;
+  font-size: 2em;
+
+}
+.task_item {
+  font-size: 12px;
+  font-style: italic;
+  color: blue;
+}
+
+.task_form {
+  display: inline;
+}
+
+.completed_item {
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+body {
+  color: white;
+  background-image: url("hangar.png");
+  background-color: gray;
+  margin: auto;
+  padding: 30px
+}
+
+.links_from_home {
+  color: white;
+  text-decoration: none;
+  padding: 30px;
+  margin: auto;
+}
+
+a:link {
+  color: white;
+  text-decoration: underline;
+}
+a:visited {
+  color: gray;
+  text-decoration: underline;
+}

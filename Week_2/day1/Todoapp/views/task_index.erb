@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <meta charset="utf-8"> -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Task Index</title>
   </head>
+  <header>You gotta do this shit, <%=@user%></header>
   <body>
 
-    <h1>Your task list</h1>
+    <h1>Active Tasks</h1>
+
     <% @tasklist.each do |task| %>
       <ul>
-        <li>
-        <%= task.content %>
+        <% unless task.completed? %> <!--only shows active tasks -->
+          <li><%= task.content %><span class="task_item">   <form action="/complete_task/<%=task.id%>" method="POST" class="task_form"><button type="complete_task" name="complete_task" value="<%task%>">Did it!</form></span>
+          <% end %>
       </ul>
-
       <%end%>
 
-      <a href="/new_task">Add New Task</a>
+      <div class="add_new_task links_from_home"><a href="/new_task">Add New Task</a></div>
+      <div class="delete_a_task links_from_home"><a href="/delete">Delete A Task</a></div>
   </body>
 </html>

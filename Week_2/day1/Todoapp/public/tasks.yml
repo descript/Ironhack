@@ -1,20 +1,38 @@
 ---
 jason:
 - !ruby/object:Task
-  content: pwn n00bs
-  id: 1
-  completed: false
-  created_at: 2016-08-24 17:18:02.107284000 +02:00
-  updated_at:
+  content: Finish all week2 assignments functionality
+  id: 356445
+  completed: true
+  created_at: 2016-08-25 18:00:49.995408256 +02:00
+  updated_at: 
 - !ruby/object:Task
-  content: be nice now
-  id: 2
-  completed: false
-  created_at: 2016-08-24 17:18:02.107290120 +02:00
-  updated_at:
+  content: Apply some bonuses and CSS to week2
+  id: 370300
+  completed: true
+  created_at: 2016-08-25 18:01:02.990899223 +02:00
+  updated_at: 
 - !ruby/object:Task
-  content: learn to be cool
-  id: 3
+  content: week1 - Ironblog pagination
+  id: 18511
+  completed: true
+  created_at: 2016-08-25 18:01:33.240354947 +02:00
+  updated_at: 
+- !ruby/object:Task
+  content: finish shopping cart
+  id: 284179
   completed: false
-  created_at: 2016-08-24 17:18:02.107293804 +02:00
-  updated_at:
+  created_at: 2016-08-25 18:01:43.102617117 +02:00
+  updated_at: 
+- !ruby/object:Task
+  content: finish chess validator
+  id: 219884
+  completed: false
+  created_at: 2016-08-25 18:01:54.641154498 +02:00
+  updated_at: 
+- !ruby/object:Task
+  content: add banner wit home button
+  id: 289888
+  completed: false
+  created_at: 2016-08-25 18:47:02.972981305 +02:00
+  updated_at: 
