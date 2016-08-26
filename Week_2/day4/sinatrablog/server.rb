@@ -31,11 +31,7 @@ get '/new_post' do
 end
 
 post '/save_new_post' do
-  title = params[:title]
-  text = params[:text]
-  author = params[:author]
-  category = params[:category]
-  blog.add_post(Post.new(title, text, author, category))
+  blog.add_post(Post.new(params[:title], params[:text], params[:author], params[:category]))
   blog.sort_by_latest
   redirect to "/"
 end

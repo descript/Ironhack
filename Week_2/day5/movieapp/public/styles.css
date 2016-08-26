@@ -1,0 +1,11 @@
+.movie_tile {
+  display: inline;
+  float: left;
+  padding: 12px;
+  margin: auto;
+}
+
+body > div{
+  text-align: center;
+  max-width: 800px;
+}
