@@ -1,0 +1,104 @@
+body {
+  background: url('background.jpg');
+  background-size: 100%;
+  font-weight: 500;
+}
+
+.center_logo {
+  /*max-width: 200px;*/
+  /*max-height: 200px;*/
+}
+.board_lists {
+  box-sizing: border-box;
+  /*background-color: #1eac78;*/
+}
+.trelloboard {
+  background-color: lightgray;
+  width: 280px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.board_content {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 5px 25px 3px 3px;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+a:link {
+  color:white;
+}
+
+left_controls a {
+  text-decoration-color: white;
+  color: white;
+}
+
+.trellotask {
+  background-color: #eee;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 50px;
+  padding: 5px 15px 0px 20px;
+  margin: 5px 1px 5px 1px;
+  word-wrap: break-word;
+}
+
+.left_controls {
+  display: inline-block;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  font-weight: bold;
+  min-width: 5em;
+  text-transform: capitalize;
+}
+
+.center_logo{
+    text-align: center;
+    width: 70%;
+}
+
+.center_logo img {
+  max-width: 15%;
+  opacity: 0.65;
+}
+
+.sign_up {
+  background-color: lime;
+  min-width: 75px;
+}
+
+.log_in {
+  background-color: blue;
+  min-width: 75px;
+}
+
+.trellomenu {
+  background-color: lightgray;
+  width: 20%;
+  min-height: 1000px;
+  margin-top: 6px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.menu_item {
+  font-weight: 700;
+  border-radius: 4px;
+  /*width: 100%;*/
+  min-height: 50px;
+  padding: 5px 15px 0px 20px;
+  margin: 5px 1px 5px 1px;
+  word-wrap: break-word;
+}
