@@ -1,0 +1,51 @@
+.navig_bar {
+  background-color: white;
+  height: 90px;
+  padding: 5px 30px 5px 30px;
+}
+
+.logo {
+  font-size: 30px;
+  float:right;
+  margin: 15px;
+  font-weight: bold;
+}
+
+.selection {
+  float: right;
+}
+
+.navbar-text {
+    margin: 15px;
+}
+
+.nav li{
+  display: inline-block;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: gray;
+}
+
+
+.gallery {
+  background-color: black;
+  height: 550px;
+}
+
+.threeservices {
+  background-color: red;
+}
+
+.content {
+  background-color: white;
+}
+
+.about {
+  background-color: black;
+}
+
+.copyright {
+  background-color: gray;
+}

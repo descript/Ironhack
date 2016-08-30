@@ -1,0 +1,31 @@
+.container {
+  width:940px;
+  margin: 0 auto;
+}
+.row {
+  margin-left: -20px;
+}
+[class*="span"] {
+  display: inline-block;
+  margin-left: 10px;
+}
+.span-one-third {
+  width:300px;
+}
+
+@media screen and (max-width:750px) {
+  .span-one-third {
+    width: 300px;
+  }
+  [class*="span"]{
+    display: block;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .span-one-third {
+    /*display: block;*/
+    /*float: left;*/
+    max-width: 30%;
+  }
+}
