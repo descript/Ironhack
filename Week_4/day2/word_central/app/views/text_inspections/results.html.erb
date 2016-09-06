@@ -1,0 +1,20 @@
+<p>
+  <!-- <%= @text %><br /><br /> -->
+  <%= @word_count %> <br/>
+  <p>
+    It would take about <% var= (@word_count.to_f)/(275) %><%=var%> minutes to read your input.
+  </p>
+</p>
+<div>
+  <%= @word_frequency.inspect %>
+</div>
+<div>
+  <br />
+  <div>
+    <%= @top_10 %> are the top 10 most common words
+  </div>
+  <br />
+  <div>
+    <%= link_to 'Home', "/" %>
+  </div>
+</div>

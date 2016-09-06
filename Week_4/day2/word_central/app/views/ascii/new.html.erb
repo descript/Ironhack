@@ -1,0 +1,14 @@
+<!-- app/views/text_inspections/new.html.erb -->
+
+<h1>ASCII</h1>
+
+
+<!-- ***** New ***** -->
+<form action='/ascii' method="POST">
+  <div>
+    <label for="ascii_user_text">Text</label>
+    <textarea name="ascii[user_text]" id="ascii_user_text"></textarea>
+  </div>
+  <button type="submit">Submit text</button>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+</form>
