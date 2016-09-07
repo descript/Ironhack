@@ -1,0 +1,15 @@
+<%=@contacts.all%>
+
+<% @contacts.order("name ASC").each do |contact| %>
+
+<li>
+    <a href="/show/<%=contact.id%>">
+        <%= contact.name %>
+    </a>
+</li>
+<% end %>
+</div>
+
+<div>
+<a href="/contacts/new">New Contact</a>
+</div>
