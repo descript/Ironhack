@@ -1,0 +1,10 @@
+<h1>Delete a user</h1>
+
+<%= form_for(@userplaceholder, url: {action:"destroy"}, method: :post) do |u|%>
+
+<p>Enter the email to delete</p>
+<%= u.label :email %>
+<%= u.text_field :email %>
+
+<%= u.button "Delete User" %>
+<% end %>

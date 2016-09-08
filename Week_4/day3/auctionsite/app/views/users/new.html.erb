@@ -1,0 +1,12 @@
+<h1>Register as a new user</h1>
+
+<%= form_for @new_user do |u|%>
+
+<%= u.label :name %>
+<%= u.text_field :name %>
+
+<%= u.label :email %>
+<%= u.text_field :email %>
+
+<%= u.button %>
+<% end %>
