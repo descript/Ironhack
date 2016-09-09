@@ -2,10 +2,13 @@
 <p>Your search for <em><%= params[:search] %></em> has yielded:</p>
 
 <% @results.each do |movie| %>
-<h3><%=movie.title%> (<%=movie.year%>)</h3>
-<div><img src="<%=movie.poster%>" height="300" width="200"/></div>
+<h3><%=movie.title%></h3>
+
+<div><img src="<%=movie.poster%>" alt="<%=movie.title%>" height="300" width="200"/></div>
+
 <div style="width:500px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
 <%=movie.plot_synopsis%></div>
+
 <div><%= link_to "Start a discussion", :action => :discuss, id: movie.id, search: params[:search] %></div>
 
 <% end %>

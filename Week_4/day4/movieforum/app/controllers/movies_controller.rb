@@ -19,23 +19,17 @@ class MoviesController < ApplicationController
     else
       redirect_to "/movies/discuss/#{@query[0].id}"
     end
-
   end #show
 
   def discuss
+    @query = Movie.where("id=?","#{params[:id]}")
+    if @query.empty? #then its in the database
+      @movie = Imdb::Search.new(params[:search]).movies.select {|movie| movie.id=="#{params[:id]}"} #redo a search but selects 1 movie based off ID
 
-    if params[:id].to_i < 1000 #then its in the database
-      @movie = Movie.where("id=?","#{params[:id]}")
+      Movie.save_new_movie_to_db(@movie[0])
     else
-      @movie = Imdb::Search.new(params[:search]).movies.select {|movie| movie.id=="#{params[:id]}"} #redo a search but selects single mvie based off of ID
-      save_new_movie_to_db = Movie.new(
-      :title => @movie[0].title,
-      :year => @movie[0].year,
-      :poster => @movie[0].poster,
-      :plot_synopsis => @movie[0].plot_synopsis
-      )
-
-      save_new_movie_to_db.save
+      @movie = Movie.where("id=?","#{params[:id]}")
     end# if
   end# discuss
+
 end
