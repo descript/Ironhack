@@ -1,0 +1,8 @@
+<h1>Search for new movie</h1>
+
+<%= form_for(@movie) do |f|%>
+  <%= f.label :title%>
+  <%= f.text_field :title %>
+
+  <%= f.submit "Search by title" %>
+<% end %>

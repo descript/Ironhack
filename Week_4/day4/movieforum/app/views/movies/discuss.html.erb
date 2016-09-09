@@ -1,0 +1,12 @@
+<h1>Discuss</h1>
+<% if @query != nil %>
+<% @view = @query %>
+<% elsif @movie != nil %>
+<% @view = @movie %>
+<% end %>
+
+<h3><%=@view[0].title%>(<%=@view[0].year%>)</h3>
+
+<div><img src=<%=@view[0].poster%> alt=<%=@view[0].title%> height="300" width="200"/></div>
+
+<div style="width:70%"><%=@view[0].plot_synopsis%></div>

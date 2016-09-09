@@ -1,0 +1,6 @@
+<h1>Index</h1>
+<% @movies.each do |f|%>
+<li><%= f.title %> (<%= f.year %>)</li>
+<% end %>
+
+<%= link_to "New Search", controller: "movies", action: "new" %>
