@@ -1,0 +1,22 @@
+most important take-away:
+jquery is just a function named $
+everything follows the same template: find->function->params
+you can listen to events
+
+
+recruiting:
+solve business/people problems with software
+she claims hybrid/fullstack and other wider experiecnes having more value
+sometimes get a complicated and unanswerable question at invterviews. they expect u to look it up for next time
+dev with 5 yr exp or dev with 1yr exp repeated 5x times
+spec or generalist?
+have technology books and a favorite to reference
+hvae an idea of whats going on in he community
+software engineering becoming more scientific and mature
+practice explaining code to others
+biggest accomplishment/failure in yuor code? hwo did u learn from failure?
+every 6mo learn a new langu
+can never have more than 3 ys exp in anything since it chnanges so fast
+who will i be working with, whos the tech lead/mentor
+
+30sec take-away: demonstrate passion, curiosity and eagerness to learn. Be aware of industry and technology trends (including people drama). Want people who think like engineers and are fun to work with.

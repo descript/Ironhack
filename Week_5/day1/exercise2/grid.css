@@ -1,0 +1,19 @@
+.container {
+  width: 1300px;
+  text-align: center;
+}
+.square {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+}
+
+.js-color1 {
+  background-color: red;
+
+}
+
+.js-color2 {
+  background-color: blue;
+}
