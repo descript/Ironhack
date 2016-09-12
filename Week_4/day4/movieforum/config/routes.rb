@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get "/movies/discuss/:id", to: "movies#discuss" #first lets make individual pages for each movie upon clicking the link
 end
 
+#get "/movies/discuss/:id/comments/new", to: "comments#new"
+#post "/movies/discuss/:id/comments/", to: "comments#create"
 
-#start a discussion should be a post, and transmit the information that I want.
-#it then redirects/renders to the actual discussion page. this page is where we go straight to if the movie is already in the database
+
+#was I supposed to generate the second model as a Belong_to?
+
+#Must figure out how to associate comments with Movies.

@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+  has_many :comments
 
   def search_imdb(search_term)
   end

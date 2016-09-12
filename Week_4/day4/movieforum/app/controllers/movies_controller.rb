@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
 
       Movie.save_new_movie_to_db(@movie[0])
     else
-      @movie = Movie.where("id=?","#{params[:id]}")
+      @movie = @query
     end# if
   end# discuss
 
