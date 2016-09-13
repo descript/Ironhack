@@ -3,7 +3,7 @@ $(function () {
   var rows = 10;
   var cols = 10;
   var cells = [];
-  var even = true;
+  // var even = true;
   function createGrid(root) {
     for(var i = 0; i < cols; i++) {
       for(var j = 0; j < cols; j++) {
@@ -15,23 +15,23 @@ $(function () {
     }
   };
 
-  function updateState() {
-    cells.forEach(function (cell) {
-      var row = Math.floor(cell.data('row'));
-      var col = Math.floor(cell.data('col'));
-      var sum = row + col;
-      var isEven = sum % 2 == 0;
-      if (isEven === even) {
-        cell.addClass('active');
-      } else {
-        cell.removeClass('active');
-      }
-    });
-    // even = !even;
-  }
-
-  setInterval(updateState, 500);
-
   var $root = $('.container');
   createGrid($root);
+
+  $('.cell').click(function(event) {
+    console.log(this);
+    $(this).toggleClass('active').siblings().removeClass('active');
+    active_cell_row = $('.cell.active').attr("data-row");
+    active_cell_col = $('.cell.active').attr("data-col");
+  });
+
+  $(document).keypress(function(event){
+    if (event.key == "w") {
+      active_cell_row += 1
+    }
+  })
+
 });
+
+var active_cell_row;
+var active_cell_col;
