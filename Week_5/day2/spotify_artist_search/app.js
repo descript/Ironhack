@@ -29,10 +29,10 @@ function artistList(response) {
     artist_array.forEach(function(artist,index) {
         // var i = index;
         // var artist_list_item = $('<li>').text(artist.name);
-        var artist_image = "<img height='300' width='300'src=" + artist.images[1].url + ">";
+        var artist_image = "<img class='image_"+index+"' height='300' width='300' src=" + artist.images[1].url + ">";
         // $('.results').append(artist_list_item);
-        $('.results').append($('<li class="image">').html(artist_image));
-        modalCreator(artist_image, $('<p>').text(artist.name),index)
+        $('.results').append($("<li>").html(artist_image));
+        modalCreator(artist_image, $('<p>').text(artist.name),index);
     })
 };
 
@@ -41,14 +41,14 @@ function handleError(error) {
     console.log(error.responseText);
 };
 
-function modalCreator(image,content,index)
-    var outer_div = $("<div class='modal fade bs-example-modal-lg outer' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel'>");
-    var middle_div = $("<div class='modal-dialog modal-lg middle' role='document'>");
-    var inner_div = $("<div class='modal-content inner'>");
+function modalCreator(image,content,index) {
+    var outer_div = $("<div class='modal fade outer_"+index+"' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' id='target_"+index+"'>");
+    var middle_div = $("<div class='modal-dialog modal-lg middle_"+index+"' role='document'>");
+    var inner_div = $("<div class='modal-content inner_"+index+"'>");
 
-    $('img').wrap("<a class='btn' data-toggle='modal' data-target='.bs-example-modal-lg'>");
-    $('a').after(outer_div);
-    $('.outer').append(middle_div);
-    $('.middle').append(inner_div);
-    $('.inner').append(content);
+    $('.image_'+index).wrap("<a class='btn anchor_"+index+"' data-toggle='modal' data-target='#target_"+index+"'>");
+    $('.anchor_'+index).after(outer_div);
+    $('.outer_'+index).append(middle_div);
+    $('.middle_'+index).append(inner_div);
+    $('.inner_'+index).append(content);
 };
