@@ -20,3 +20,8 @@ can never have more than 3 ys exp in anything since it chnanges so fast
 who will i be working with, whos the tech lead/mentor
 
 30sec take-away: demonstrate passion, curiosity and eagerness to learn. Be aware of industry and technology trends (including people drama). Want people who think like engineers and are fun to work with.
+
+
+JS and THIS:
+#1 interview question for javascript:
+this.renderSearch.bind(spotify)  <- sets this to whatever we pass to bind
