@@ -25,3 +25,22 @@ who will i be working with, whos the tech lead/mentor
 JS and THIS:
 #1 interview question for javascript:
 this.renderSearch.bind(spotify)  <- sets this to whatever we pass to bind
+
+LinkedIn Tips:
+21% unemp in Spain. largest in Europe. 50% of the young are unemp
+only 5% unemp in IT. More positions than candidates
+140k Euro in Oslo; 40k here
+Spain/BCn good combination of cheapness/skill; better than skill
+Look on Linkedin for the CTO
+Title should be more like Where u want to be/what u want to do
+put email visibly so people can contact you for free
+follow the different groups such as Ruby on Rails
+:use word Developer not software dev; use Dev in Experience snippet "I am jason I am a developer"
+Make it easy for the recruiters to find you
+COnsqeuences of a dynamic where all senior devs have real chance to strike out on their own startups; established companies have hard time hiring snr devs.
+
+
+wuaki.tv
+*goog* How companies use keyword search on linkedin
+
+--Front end vs Fullstack/Ruby?
