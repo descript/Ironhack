@@ -1,0 +1,45 @@
+<h1>Pokédex</h1>
+
+<!-- List of pokemon -->
+<ul class="pokedex-list">
+  <% @pokemon.each do |pkmn| %>
+    <li>
+      <button class="js-show-pokemon btn btn-link"
+          data-pokemon-uri="<%= pkmn["resource_uri"] %>">
+        <%= pkmn["name"] %>
+      </button>
+    </li>
+  <% end %>
+</ul>
+
+
+<!-- Pokemon modal view (hidden at first) -->
+<div class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+
+        <h3 class="modal-title">
+          <span id="name">Feraligtr</span>
+          <small id="pokemon_id">#160</small>
+        </h3>
+      </div><!-- .modal-header -->
+
+      <div class="modal-body">
+        <span><img id="pokemon_sprite" height='100' width='100' src="http://vignette2.wikia.nocookie.net/es.pokemon/images/7/72/Feraligatr_NB.png/revision/latest?cb=20100919172109" /></span>
+        <dl class="dl-horizontal">
+          <dt>Height</dt>
+          <dd id="height">23</dd>
+
+          <dt>Weight</dt>
+          <dd  id="weight">888</dd>
+        </dl>
+      </div><!-- .modal-body -->
+
+    </div><!-- .modal-content -->
+  </div><!-- .modal-dialog -->
+</div><!-- .modal -->
